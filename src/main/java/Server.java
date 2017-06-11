@@ -5,9 +5,9 @@ import java.net.Socket;
 /**
  * Created by vika on 03.05.17.
  */
-public class Server {
-    public static void forServer(){
-        //создаем объект сервер-сокет
+public class Server implements Runnable {
+
+    public void run() {
         ServerSocket serverSocket = null; //порт
         try {
             serverSocket = new ServerSocket(4444);

@@ -4,8 +4,9 @@ import java.net.Socket;
 /**
  * Created by vika on 03.05.17.
  */
-public class Client {
-    public static void forClient() {
+public class Client implements Runnable {
+
+    public void run() {
         Socket clientSocket = null;
         try {
             clientSocket = new Socket("localhost", 4444);
