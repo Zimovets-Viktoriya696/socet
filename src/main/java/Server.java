@@ -14,6 +14,7 @@ public class Server implements Runnable {
             //в цикле обрабатываем входящие соединения.
             while (true)
             {
+
                 //метод accept ждет, пока кто-то не подключится.
                 Socket socket = serverSocket.accept();
 

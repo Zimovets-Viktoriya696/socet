@@ -20,6 +20,7 @@ public class Client implements Runnable {
             InputStream inputStream = clientSocket.getInputStream();
             BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
             String answer = in.readLine();
+            System.out.println(answer);
         } catch (IOException e) {
             e.printStackTrace();
         }
