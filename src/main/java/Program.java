@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 public class Program {
+
+    static String  host = "localhost";
+    static int port = 4444;
+    static CallBack callBack;
+
+
     public static void main(String[] args) {
         String input;
         do {
@@ -13,7 +19,7 @@ public class Program {
         do {
             input = waitForCorrectlyInput();
         } while (!("c").equals(input));
-        Client client = new Client();
+        Client client = new Client(host, port, callBack);
         Thread thread1 = new Thread(client);
         thread1.start();
     }
