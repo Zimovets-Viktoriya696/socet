@@ -10,6 +10,7 @@ public class Link {
     String  host;
     int port;
     CallBack callBack;
+    Socket clientSocket = null;
 
     Link (String host, int port){
         this.host = host;
@@ -17,23 +18,24 @@ public class Link {
     }
 
     public void connect(){
-        Socket clientSocket = null;
         try {
             clientSocket = new Socket("localhost", 4444);
-            clientSocket.getInputStream();
-            clientSocket.getOutputStream();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public String sendMessage (Message message){
+    public void sendMessage (Message message){
         Gson gson = new Gson();
         String json = gson.toJson(message);
-        return json;
+        byte[] massOfByts = json.getBytes();
+        try {
+            OutputStream outputStream = clientSocket.getOutputStream();
+            outputStream.write(massOfByts);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-
 }
 
 
