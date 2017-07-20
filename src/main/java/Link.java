@@ -36,6 +36,18 @@ public class Link {
             e.printStackTrace();
         }
     }
+
+    public void readMessage (){
+        byte[] massOfByts = new byte[4];
+        while (true) {
+            try {
+                InputStream inputStream = clientSocket.getInputStream();
+                inputStream.read(massOfByts);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
 
 

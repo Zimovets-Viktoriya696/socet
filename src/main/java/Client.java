@@ -45,10 +45,10 @@ public class Client implements Runnable {
     public void run() {
         Socket clientSocket = null;
         try {
-                                                        clientSocket = new Socket("localhost", 4444);
-                                                        //получаем OutputStream
-                                                        OutputStream outputStream = clientSocket.getOutputStream();
-                                                        PrintW  riter out = new PrintWriter(outputStream, true);
+            clientSocket = new Socket("localhost", 4444);
+            //получаем OutputStream
+            OutputStream outputStream = clientSocket.getOutputStream();
+            PrintWriter out = new PrintWriter(outputStream, true);
             out.println("Kiss my shiny metal ass!");
             out.flush();
 
